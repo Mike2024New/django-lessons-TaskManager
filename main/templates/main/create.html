@@ -1,0 +1,16 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block content %}
+<h1>{{ title }}</h1> <br>
+<form method="post">
+  {% csrf_token %} <!-- ЗАЩИТА ОТ МЕЖСЕТЕВЫХ ЗАПРОСОВ ДОБАВЛЯТЬ ОБЯЗАТЕЛЬНО! ЕСЛИ ФОРМА НЕ ВЗАИМОДЕЙСТВ. С ДРУГИМИ САЙТАМИ -->
+  {{ form.title }} <br>
+  {{ form.task }} <br>
+  <button type="submit" class="btn btn-success">Добавить</button>
+</form>
+<p>{{ error }}</p>
+{% endblock content %}
